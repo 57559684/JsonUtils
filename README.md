@@ -13,7 +13,7 @@ Support json parsing and packaging in utf8 and utf16 formats
 
 
 Author: 57559684 2023-1-10
-If you have problems using this log library, you can send an email to <57559684@qq.com>
+If you have problems using this json library, you can send an email to <57559684@qq.com>
 
 功能介绍：
 Win平台RapidJson封装
