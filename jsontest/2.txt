@@ -1,0 +1,109 @@
+{
+	"result": {
+		"resultCode": "0",
+		"SyncDiskFileInfoRsp": {
+			"catalogInfoList": [
+				{
+					"catalogName": "我的文件夹",
+					"catalogID": "0B11jF8Fu0jj00019700101000000001",
+					"catalogType": 7,
+					"isShared": false,
+					"createTime": "20210617120548",
+					"updateTime": "20210617120548",
+					"catalogLevel": 1,
+					"shareDoneeCount": 0,
+					"ETagOprType": 1,
+					"openType": 0,
+					"dirEtag": 4194304,
+					"tombstoned": 0,
+					"moved": 0,
+					"parentCatalogId": "root",
+					"isFixedDir": 1,
+					"path": "00019700101000000001",
+					"owner": "18681488891",
+					"shareType": 0,
+					"isIngested": "1"
+				},
+				{
+					"catalogName": "新建文件夹",
+					"catalogID": "0B11jF8Fu0jj02520210610151015cq4",
+					"catalogType": 0,
+					"isShared": false,
+					"createTime": "20210610151015",
+					"updateTime": "20210617120453",
+					"catalogLevel": 3,
+					"shareDoneeCount": 0,
+					"ETagOprType": 1,
+					"openType": 0,
+					"dirEtag": 1516775641015743079,
+					"tombstoned": 0,
+					"proxyID": "",
+					"moved": 0,
+					"parentCatalogId": "0B11jF8Fu0jj00019700101000000101",
+					"isFixedDir": 0,
+					"path": "00019700101000000001/0B11jF8Fu0jj00019700101000000101/0B11jF8Fu0jj02520210610151015cq4",
+					"owner": "18681488891",
+					"modifier": "18681488891",
+					"shareType": 0,
+					"isIngested": "1",
+					"extProp3": "<![CDATA[{\"creator\":\"18681488891\"}]]>"
+				}
+			],
+			"contentInfoList": [
+				{
+					"contentID": "0B11jF8Fu0jj02520210615180815w9g",
+					"contentName": "PCHunter64.cfg",
+					"contentSuffix": "cfg",
+					"contentSize": 2928,
+					"contentDesc": "",
+					"isShared": false,
+					"contentType": 0,
+					"contentOrigin": 1,
+					"updateTime": "20210617120453",
+					"commentCount": 0,
+					"thumbnailURL": "",
+					"bigthumbnailURL": "",
+					"midthumbnailURL": "",
+					"presentURL": "",
+					"presentLURL": "",
+					"presentHURL": "",
+					"shareDoneeCount": 0,
+					"safestate": 0,
+					"transferstate": 0,
+					"isFocusContent": 0,
+					"uploadTime": "20210615180815",
+					"ETagOprType": 1,
+					"openType": 0,
+					"auditResult": 0,
+					"parentCatalogId": "0B11jF8Fu0jj02520210610151015cq4",
+					"channel": "10200153",
+					"digest": "6CAF0D6885BD3E35C11717A69ADE234B",
+					"geoLocFlag": 0,
+					"version": "",
+					"fileEtag": 1516775641091240557,
+					"encryptFlag": 0,
+					"fileVersion": 1516142309827503735,
+					"tombstoned": 1,
+					"proxyID": "",
+					"moved": 0,
+					"owner": "18681488891",
+					"modifier": "18681488891",
+					"shareType": 0,
+					"exif": {
+						"createTime": ""
+					},
+					"isIngested": "1",
+					"path": "00019700101000000001/0B11jF8Fu0jj00019700101000000101/0B11jF8Fu0jj02520210610151015cq4",
+					"extInfo": {
+						"collectionFlag": "0"
+					}
+				}
+			],
+			"syncToken": "1516775641091240557",
+			"snapshotToken": "0",
+			"completed": 1,
+			"isReady": 1,
+			"delay": 30
+		}
+	}
+}
