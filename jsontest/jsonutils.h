@@ -100,6 +100,7 @@ public:
     bool IsUint32() const;
     bool IsUint64() const;
     bool IsDouble() const;
+	bool IsBool() const;
 
     /**
      * 判断是否存在制定的键值对
@@ -108,6 +109,15 @@ public:
      */
     bool IsExists(const char* strKey) const;
     bool IsExists(const std::string& strKey) const;
+
+
+    /**
+     * 删除指定键值对
+     * @param[in] strKey 键字符串
+     * @return
+     */
+    bool Remove(const char* strKey) const;
+    bool Remove(const std::string& strKey) const;
 
 public:
     /**
@@ -149,6 +159,7 @@ public:
     CJsonUtils& operator=(uint32_t uValue);
     CJsonUtils& operator=(uint64_t u64Value);
     CJsonUtils& operator=(double dValue);
+	CJsonUtils& operator=(bool bValue);
 
     /**
      * 隐式转换，取值
@@ -172,6 +183,7 @@ public:
     operator int64_t() const;
     operator uint64_t() const;
     operator double() const;
+	operator bool() const;
 
 private:
     template<typename _TYPE_, typename _CONVERT_FUNC_, typename _DEF_VAL>
@@ -235,6 +247,7 @@ public:
 	bool IsUint32() const;
 	bool IsUint64() const;
 	bool IsDouble() const;
+	bool IsBool() const;
 
 	/**
 	 * 判断是否存在制定的键值对
@@ -243,6 +256,14 @@ public:
 	 */
 	bool IsExists(const wchar_t* strKey) const;
 	bool IsExists(const std::wstring& strKey) const;
+
+	 /**
+     * 删除指定键值对
+     * @param[in] strKey 键字符串
+     * @return
+     */
+    bool Remove(const wchar_t* strKey) const;
+    bool Remove(const std::wstring& strKey) const;
 
 public:
 	/**
@@ -284,6 +305,7 @@ public:
 	CJsonUtilsW& operator=(uint32_t uValue);
 	CJsonUtilsW& operator=(uint64_t u64Value);
 	CJsonUtilsW& operator=(double dValue);
+	CJsonUtilsW& operator=(bool bValue);
 
 	/**
 	 * 隐式转换，取值
@@ -307,6 +329,7 @@ public:
 	operator int64_t() const;
 	operator uint64_t() const;
 	operator double() const;
+	operator bool() const;
 
 private:
 	template<typename _TYPE_, typename _CONVERT_FUNC_, typename _DEF_VAL>

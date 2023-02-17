@@ -155,6 +155,18 @@ bool CJsonUtils::IsDouble() const
     return m_pValue->IsDouble();
 }
 
+bool CJsonUtils::IsBool() const
+{
+	switch (m_pValue->GetType())
+	{
+	case kTrueType:
+	case kFalseType:
+		return true;
+	}
+
+	return m_pValue->IsBool();
+}
+
 bool CJsonUtils::IsExists(const char* strKey) const
 {
     return m_pValue->HasMember(strKey);
@@ -163,6 +175,21 @@ bool CJsonUtils::IsExists(const char* strKey) const
 bool CJsonUtils::IsExists(const std::string& strKey) const
 {
     return IsExists(strKey.c_str());
+}
+
+bool CJsonUtils::Remove(const char* strKey) const
+{
+	if (m_pValue->HasMember(strKey))
+	{
+		return m_pValue->RemoveMember(strKey);
+	}
+
+	return false;
+}
+
+bool CJsonUtils::Remove(const std::string& strKey) const
+{
+	return Remove(strKey.c_str());
 }
 
 CJsonUtils CJsonUtils::operator[](const char* strKey)
@@ -289,6 +316,12 @@ CJsonUtils& CJsonUtils::operator=(double dValue)
     return *this;
 }
 
+CJsonUtils& CJsonUtils::operator=(bool bValue)
+{
+	m_pValue->SetBool(bValue);
+	return *this;
+}
+
 CJsonUtils::operator string() const
 {
     if (true == m_pValue->IsString())
@@ -356,6 +389,11 @@ CJsonUtils::operator double() const
     return ConvertToNumber<double>(atof, 0.0);
 }
 
+CJsonUtils::operator bool() const
+{
+	return ConvertToNumber<bool>(atoi, 0);
+}
+
 template<typename _TYPE_, typename _CONVERT_FUNC_, typename _DEF_VAL>
 _TYPE_ CJsonUtils::ConvertToNumber(_CONVERT_FUNC_ pFunc, _DEF_VAL tDefValue) const
 {
@@ -383,6 +421,10 @@ _TYPE_ CJsonUtils::ConvertToNumber(_CONVERT_FUNC_ pFunc, _DEF_VAL tDefValue) con
     {
         return m_pValue->GetDouble();
     }
+	else if (true == m_pValue->IsBool())
+	{
+		return m_pValue->GetBool();
+	}
     else
     {
         return tDefValue;
@@ -530,6 +572,18 @@ bool CJsonUtilsW::IsDouble() const
 	return m_pValue->IsDouble();
 }
 
+bool CJsonUtilsW::IsBool() const
+{
+	switch (m_pValue->GetType())
+	{
+	case kTrueType:
+	case kFalseType:
+		return true;
+	}
+
+	return m_pValue->IsBool();
+}
+
 bool CJsonUtilsW::IsExists(const wchar_t* strKey) const
 {
 	return m_pValue->HasMember(strKey);
@@ -538,6 +592,21 @@ bool CJsonUtilsW::IsExists(const wchar_t* strKey) const
 bool CJsonUtilsW::IsExists(const std::wstring& strKey) const
 {
 	return IsExists(strKey.c_str());
+}
+
+bool CJsonUtilsW::Remove(const wchar_t* strKey) const
+{
+	if (m_pValue->HasMember(strKey))
+	{
+		return m_pValue->RemoveMember(strKey);
+	}
+
+	return false;
+}
+
+bool CJsonUtilsW::Remove(const std::wstring& strKey) const
+{
+	return Remove(strKey.c_str());
 }
 
 CJsonUtilsW CJsonUtilsW::operator[](const wchar_t* strKey)
@@ -664,6 +733,12 @@ CJsonUtilsW& CJsonUtilsW::operator=(double dValue)
 	return *this;
 }
 
+CJsonUtilsW& CJsonUtilsW::operator=(bool bValue)
+{
+	m_pValue->SetBool(bValue);
+	return *this;
+}
+
 CJsonUtilsW::operator wstring() const
 {
 	if (true == m_pValue->IsString())
@@ -731,6 +806,11 @@ CJsonUtilsW::operator double() const
 	return ConvertToNumber<double>(_wtof, 0.0);
 }
 
+CJsonUtilsW::operator bool() const
+{
+	return ConvertToNumber<bool>(_wtoi, 0);
+}
+
 template<typename _TYPE_, typename _CONVERT_FUNC_, typename _DEF_VAL>
 _TYPE_ CJsonUtilsW::ConvertToNumber(_CONVERT_FUNC_ pFunc, _DEF_VAL tDefValue) const
 {
@@ -757,6 +837,10 @@ _TYPE_ CJsonUtilsW::ConvertToNumber(_CONVERT_FUNC_ pFunc, _DEF_VAL tDefValue) co
 	else if (true == m_pValue->IsDouble())
 	{
 		return m_pValue->GetDouble();
+	}
+	else if (true == m_pValue->IsBool())
+	{
+		return m_pValue->GetBool();
 	}
 	else
 	{

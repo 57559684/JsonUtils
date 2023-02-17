@@ -54,10 +54,14 @@ int _tmain(int argc, _TCHAR* argv[])
 	cJsonUtils0["c"] = "1234";
 	cJsonUtils0["d"] = "1235";
 	cJsonUtils0["e"] = "1236";
+	cJsonUtils0["f"] = false;
+	cJsonUtils0["g"] = true;
 	cJsonUtils0["child"]["a"] = "child a parm";
 	cJsonUtils0["child"]["b"] = "child b parm";
 	cJsonUtils0["array"][0] = cJsonUtils1;
 	cJsonUtils0["array"][1] = cJsonUtils2;
+
+	cJsonUtils0.Remove("f");
 
 	string strJsonText = cJsonUtils0.GetJsonText();
 
@@ -85,6 +89,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	cJsonUtilsd.Parse(datatt);
 
 	cJsonUtilsd["test"] = cJsonUtils1;
+	cJsonUtilsd["Object"].Remove("age");
 
 	string strJsonText2 = cJsonUtilsd.GetJsonText(true);
 
