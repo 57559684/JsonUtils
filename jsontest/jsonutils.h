@@ -119,6 +119,13 @@ public:
     bool Remove(const char* strKey) const;
     bool Remove(const std::string& strKey) const;
 
+    /**
+     * 删除指定数组元素
+     * @param[in] iArrayIndex 数组索引号
+     * @return
+     */
+    bool Remove(int32_t iArrayIndex) const;
+
 public:
     /**
      * 键值对操作，得到值对象
@@ -264,6 +271,13 @@ public:
      */
     bool Remove(const wchar_t* strKey) const;
     bool Remove(const std::wstring& strKey) const;
+
+	/**
+	 * 删除指定数组元素
+	 * @param[in] iArrayIndex 数组索引号
+	 * @return
+	 */
+	bool Remove(int32_t iArrayIndex) const;
 
 public:
 	/**

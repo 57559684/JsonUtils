@@ -192,6 +192,29 @@ bool CJsonUtils::Remove(const std::string& strKey) const
 	return Remove(strKey.c_str());
 }
 
+bool CJsonUtils::Remove(int32_t iArrayIndex) const
+{
+	if (false == m_pValue->IsArray())
+		return false;
+
+	if (m_pValue->Size() < iArrayIndex)
+		return false;
+
+	int index = 0;
+	for (rapidjson::Value::ValueIterator iter = m_pValue->Begin(); iter != m_pValue->End();)
+	{
+		if (index == iArrayIndex)
+		{
+			m_pValue->Erase(iter);
+			break;
+		}
+		++index;
+		++iter;
+	}
+
+	return true;
+}
+
 CJsonUtils CJsonUtils::operator[](const char* strKey)
 {
     Value::MemberIterator iter = m_pValue->FindMember(strKey);
@@ -607,6 +630,29 @@ bool CJsonUtilsW::Remove(const wchar_t* strKey) const
 bool CJsonUtilsW::Remove(const std::wstring& strKey) const
 {
 	return Remove(strKey.c_str());
+}
+
+bool CJsonUtilsW::Remove(int32_t iArrayIndex) const
+{
+	if (false == m_pValue->IsArray())
+		return false;
+
+	if (m_pValue->Size() < iArrayIndex)
+		return false;
+
+	int index = 0;
+	for (ValueW::ValueIterator iter = m_pValue->Begin(); iter != m_pValue->End();)
+	{
+		if (index == iArrayIndex)
+		{
+			m_pValue->Erase(iter);
+			break;
+		}
+		++index;
+		++iter;
+	}
+
+	return true;
 }
 
 CJsonUtilsW CJsonUtilsW::operator[](const wchar_t* strKey)

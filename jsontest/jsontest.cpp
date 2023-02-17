@@ -90,6 +90,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	cJsonUtilsd["test"] = cJsonUtils1;
 	cJsonUtilsd["Object"].Remove("age");
+	cJsonUtilsd["IntArray"].Remove(0);
 
 	string strJsonText2 = cJsonUtilsd.GetJsonText(true);
 
