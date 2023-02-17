@@ -132,6 +132,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	string strJsonText7 = cJsonUtils3["result"]["SyncDiskFileInfoRsp"]["contentInfoList"];
 	string strJsonText8 = cJsonUtils3["result"]["SyncDiskFileInfoRsp"]["contentInfoList"][0];
 	uint64_t strJsonText9 = cJsonUtils3["result"]["SyncDiskFileInfoRsp"]["contentInfoList"][0]["fileVersion"];
+	bool exist = cJsonUtils3["result"]["SyncDiskFileInfoRsp"]["contentInfoList"][0].IsExists("fileVersion");
 
 
 	return 0;
